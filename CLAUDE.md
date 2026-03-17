@@ -65,23 +65,24 @@ Match the aesthetic of the Instagram page — moody, minimal, luxe.
 
 | Token | Value |
 |---|---|
-| Background | `#0d0d0d` |
-| Surface | `#161616` / `#1e1e1e` |
-| Gold accent | `#c9a86c` / `#e2c98d` |
-| Blush accent | `#d4a0a0` |
-| Text | `#f0ebe4` |
-| Text muted | `#8a8580` |
-| Border | `rgba(201,168,108,0.18)` |
+| Background | `#faf7f4` (warm cream) |
+| Surface | `#f5ede8` / `#ede0da` |
+| Rose accent | `#c07878` / `#d9a8a8` |
+| Nude accent | `#c4a48e` |
+| Text | `#2a1a18` (deep warm charcoal) |
+| Text muted | `#7a6860` |
+| Border | `rgba(192, 120, 120, 0.2)` |
 | Heading font | Cormorant Garamond (serif, light/italic) |
 | Body font | Poppins (sans-serif, 300–500) |
 | Border radius | 12px |
 
 **Aesthetic principles:**
-- Dark, moody backgrounds with warm gold highlights
+- Light, airy cream backgrounds with blush/rose and nude accents
 - Italic serif headings for elegance
 - Minimal, no clutter
 - Subtle animations (sparkle float, scroll fade-in, scroll-line hint)
 - The logo is a CSS-rendered circle with "NAIL STUDIO / by / H" — no image logo
+- Color palette matches the brand: blush pinks, warm nudes, cream/off-white
 
 ---
 
