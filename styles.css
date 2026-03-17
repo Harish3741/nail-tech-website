@@ -2,15 +2,15 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg:        #0d0d0d;
-  --surface:   #161616;
-  --surface2:  #1e1e1e;
-  --gold:      #c9a86c;
-  --gold-light:#e2c98d;
-  --blush:     #d4a0a0;
-  --text:      #f0ebe4;
-  --text-muted:#8a8580;
-  --border:    rgba(201,168,108,0.18);
+  --bg:        #faf7f4;
+  --surface:   #f5ede8;
+  --surface2:  #ede0da;
+  --gold:      #c07878;
+  --gold-light:#d9a8a8;
+  --blush:     #c4a48e;
+  --text:      #2a1a18;
+  --text-muted:#7a6860;
+  --border:    rgba(192, 120, 120, 0.2);
   --radius:    12px;
   --font-head: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Poppins', sans-serif;
@@ -114,7 +114,7 @@ img { display: block; max-width: 100%; }
 }
 
 .navbar.scrolled {
-  background: rgba(13,13,13,0.88);
+  background: rgba(250, 247, 244, 0.92);
   backdrop-filter: blur(16px);
   padding: 14px 0;
   border-bottom: 1px solid var(--border);
@@ -190,7 +190,7 @@ img { display: block; max-width: 100%; }
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  background: radial-gradient(ellipse 80% 60% at 50% 40%, #1a1208 0%, var(--bg) 70%);
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, #f0d5d5 0%, var(--bg) 70%);
 }
 
 .hero::before {
@@ -347,7 +347,7 @@ img { display: block; max-width: 100%; }
   height: clamp(140px, 20vw, 190px);
   border-radius: 50%;
   border: 1.5px solid var(--border);
-  background: radial-gradient(circle at 40% 40%, #2a1f0e, #0d0d0d);
+  background: radial-gradient(circle at 40% 40%, #edd0ca, var(--surface));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -437,7 +437,7 @@ img { display: block; max-width: 100%; }
   align-items: flex-start;
   gap: 12px;
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(42, 26, 24, 0.07);
 }
 .price-list li:last-child { border-bottom: none; padding-bottom: 0; }
 
@@ -507,26 +507,26 @@ img { display: block; max-width: 100%; }
 .tile-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(13,13,13,0.55);
+  background: rgba(250, 247, 244, 0.65);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s;
-  color: white;
+  color: var(--text);
 }
 .tile-overlay svg { width: 28px; height: 28px; }
 
-/* Gallery tile backgrounds — nail art inspired color palettes */
-.tile-1 { background: linear-gradient(135deg, #1a0f08 0%, #3d2810 40%, #c9a86c 100%); }
-.tile-2 { background: linear-gradient(135deg, #150a0a 0%, #4a1e1e 50%, #d4a0a0 100%); }
-.tile-3 { background: linear-gradient(135deg, #080f10 0%, #1a3535 50%, #8bbdba 100%); }
-.tile-4 { background: linear-gradient(135deg, #150610 0%, #3d1535 50%, #e8b4d8 100%); }
-.tile-5 { background: linear-gradient(135deg, #0f0f08 0%, #2a2610 50%, #c9a86c 100%); }
-.tile-6 { background: linear-gradient(135deg, #0a0a0a 0%, #2a2a2a 50%, #e8e8e8 100%); }
-.tile-7 { background: linear-gradient(135deg, #030d12 0%, #0d3040 50%, #4a9fa8 100%); }
-.tile-8 { background: linear-gradient(135deg, #120806 0%, #3d1a08 50%, #c9603a 100%); }
-.tile-9 { background: linear-gradient(135deg, #100508 0%, #2e0c18 50%, #e8a0b0 100%); }
+/* Gallery tile backgrounds — blush / nude / cream palettes */
+.tile-1 { background: linear-gradient(135deg, #f5e0d8 0%, #e8c0b0 40%, #c07878 100%); }
+.tile-2 { background: linear-gradient(135deg, #f8eaea 0%, #ecc8c8 50%, #d49898 100%); }
+.tile-3 { background: linear-gradient(135deg, #eef4f3 0%, #cce0dd 50%, #8bbdba 100%); }
+.tile-4 { background: linear-gradient(135deg, #f8edf5 0%, #eacce0 50%, #d4a0c8 100%); }
+.tile-5 { background: linear-gradient(135deg, #f8f0e8 0%, #edddc8 50%, #c9b48c 100%); }
+.tile-6 { background: linear-gradient(135deg, #f8f5f2 0%, #ece6e2 50%, #c8bdb8 100%); }
+.tile-7 { background: linear-gradient(135deg, #edf4f8 0%, #ccdde8 50%, #90b8cc 100%); }
+.tile-8 { background: linear-gradient(135deg, #f8ede8 0%, #edd0c4 50%, #c49890 100%); }
+.tile-9 { background: linear-gradient(135deg, #f8eaed 0%, #edccd4 50%, #e8a0b0 100%); }
 
 /* Add subtle nail-art texture pattern to each tile */
 .gallery-tile::before {
@@ -566,7 +566,7 @@ img { display: block; max-width: 100%; }
   top: -200px; right: -200px;
   width: 600px; height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(201,168,108,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(192, 120, 120, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
