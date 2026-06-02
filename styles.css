@@ -697,63 +697,84 @@ img { display: block; max-width: 100%; }
   align-self: center;
 }
 
-.policy-list {
-  max-width: 760px;
-  margin: 2rem auto 0;
-}
-
-.policy-row {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 1.5rem 2.5rem;
-  padding: 2rem 0;
-  border-top: 1px solid var(--border);
-  align-items: start;
-}
-
-.policy-row:last-child {
-  border-bottom: 1px solid var(--border);
-}
-
-.policy-label {
-  font-family: var(--font-head);
-  font-size: 1.1rem;
-  font-style: italic;
-  color: var(--text);
-  letter-spacing: 0.02em;
-  padding-top: 2px;
-}
-
-.policy-row ul {
-  list-style: none;
+.accordion {
+  max-width: 700px;
+  margin-inline: auto;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.policy-row li {
-  font-size: 0.83rem;
+.accordion-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--surface2);
+}
+
+.accordion-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  font-family: var(--font-head);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-align: left;
+  transition: color 0.2s;
+}
+.accordion-trigger:hover { color: var(--rose); }
+.accordion-trigger[aria-expanded="true"] { color: var(--rose); }
+
+.accordion-icon {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+  color: var(--text-muted);
+}
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
+  transform: rotate(180deg);
+  color: var(--rose);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+.accordion-body.open {
+  max-height: 400px;
+}
+
+.accordion-body ul {
+  list-style: none;
+  padding: 0 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accordion-body li {
+  font-size: 0.82rem;
   color: var(--text-muted);
   padding-left: 16px;
   position: relative;
-  line-height: 1.7;
+  line-height: 1.65;
 }
-
-.policy-row li::before {
+.accordion-body li::before {
   content: '–';
   position: absolute;
   left: 0;
   color: var(--rose);
 }
-
-.policy-row li strong { color: var(--text); }
-
-@media (max-width: 600px) {
-  .policy-row {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-}
+.accordion-body li strong { color: var(--text); }
 
 /* ─── Footer ────────────────────────────────────────────────────────── */
 .footer {
