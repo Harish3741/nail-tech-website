@@ -97,8 +97,31 @@ submitBtn.addEventListener('click', async e => {
   submitBtn.style.pointerEvents = 'none';
 
   try {
-    const params = new URLSearchParams({ handle, message });
-    await fetch(`${SCRIPT_URL}?${params}`, { method: 'GET', mode: 'no-cors' });
+    const iframe = document.createElement('iframe');
+    iframe.name = 'gs-iframe';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    const form = document.createElement('form');
+    form.method = 'GET';
+    form.action = SCRIPT_URL;
+    form.target = 'gs-iframe';
+
+    [['handle', handle], ['message', message]].forEach(([k, v]) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = k;
+      input.value = v;
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+
+    setTimeout(() => {
+      document.body.removeChild(form);
+      document.body.removeChild(iframe);
+    }, 3000);
     handleInput.value  = '';
     messageInput.value = '';
     submitBtn.textContent = 'Sent — thank you! 🤍';
