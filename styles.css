@@ -251,8 +251,8 @@ img { display: block; max-width: 100%; }
 
 .sparkle {
   position: absolute;
-  width: 3px;
-  height: 3px;
+  width: 5px;
+  height: 5px;
   background: var(--gold);
   border-radius: 50%;
   opacity: 0;
@@ -271,6 +271,12 @@ img { display: block; max-width: 100%; }
 .sparkle:nth-child(10) { top: 35%; left: 45%; animation-delay: 3.6s; }
 .sparkle:nth-child(11) { top: 65%; left: 35%; animation-delay: 4.4s; }
 .sparkle:nth-child(12) { top: 20%; left: 30%; animation-delay: 5.2s; }
+.sparkle:nth-child(13) { top: 55%; left: 55%; animation-delay: 0.4s; }
+.sparkle:nth-child(14) { top: 85%; left: 70%; animation-delay: 1.0s; }
+.sparkle:nth-child(15) { top: 30%; left: 65%; animation-delay: 1.8s; }
+.sparkle:nth-child(16) { top: 75%; left: 15%; animation-delay: 2.6s; }
+.sparkle:nth-child(17) { top: 45%; left: 40%; animation-delay: 3.4s; }
+.sparkle:nth-child(18) { top: 5%;  left: 80%; animation-delay: 4.8s; }
 
 @keyframes sparkle-float {
   0%   { opacity: 0; transform: translateY(0) scale(0.5); }
