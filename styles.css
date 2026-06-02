@@ -697,84 +697,56 @@ img { display: block; max-width: 100%; }
   align-self: center;
 }
 
-.accordion {
-  max-width: 700px;
-  margin-inline: auto;
+.policy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
   margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
-.accordion-item {
+.policy-card {
+  background: var(--surface2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--surface2);
+  padding: 24px 26px;
 }
 
-.accordion-trigger {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 22px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text);
+.policy-card h3 {
   font-family: var(--font-head);
   font-size: 1.15rem;
   font-weight: 400;
+  color: var(--text);
+  margin-bottom: 1rem;
   letter-spacing: 0.02em;
-  text-align: left;
-  transition: color 0.2s;
-}
-.accordion-trigger:hover { color: var(--gold); }
-.accordion-trigger[aria-expanded="true"] { color: var(--gold); }
-
-.accordion-icon {
-  width: 18px; height: 18px;
-  flex-shrink: 0;
-  transition: transform 0.3s ease;
-  color: var(--text-muted);
-}
-.accordion-trigger[aria-expanded="true"] .accordion-icon {
-  transform: rotate(180deg);
-  color: var(--gold);
 }
 
-.accordion-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-}
-.accordion-body.open {
-  max-height: 400px;
-}
-
-.accordion-body ul {
+.policy-card ul {
   list-style: none;
-  padding: 0 22px 22px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.accordion-body li {
+.policy-card li {
   font-size: 0.82rem;
   color: var(--text-muted);
   padding-left: 16px;
   position: relative;
   line-height: 1.65;
 }
-.accordion-body li::before {
+
+.policy-card li::before {
   content: '–';
   position: absolute;
   left: 0;
-  color: var(--gold);
+  color: var(--rose);
 }
-.accordion-body li strong { color: var(--text); }
+
+.policy-card li strong { color: var(--text); }
+
+@media (max-width: 600px) {
+  .policy-grid { grid-template-columns: 1fr; }
+}
 
 /* ─── Footer ────────────────────────────────────────────────────────── */
 .footer {
