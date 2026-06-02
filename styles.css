@@ -399,7 +399,7 @@ img { display: block; max-width: 100%; }
   transition: border-color 0.3s, transform 0.3s;
 }
 .pricing-card:hover {
-  border-color: var(--rose);
+  border-color: var(--gold);
   transform: translateY(-4px);
 }
 
@@ -415,7 +415,7 @@ img { display: block; max-width: 100%; }
   font-family: var(--font-head);
   font-size: 1.4rem;
   font-weight: 400;
-  color: var(--rose);
+  color: var(--gold);
   margin-bottom: 1.4rem;
   letter-spacing: 0.03em;
   display: flex;
@@ -469,7 +469,7 @@ img { display: block; max-width: 100%; }
 .price-amount {
   font-family: var(--font-head);
   font-size: 1.05rem;
-  color: var(--rose);
+  color: var(--gold);
   white-space: nowrap;
   font-weight: 500;
   flex-shrink: 0;
