@@ -97,12 +97,8 @@ submitBtn.addEventListener('click', async e => {
   submitBtn.style.pointerEvents = 'none';
 
   try {
-    await fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({ handle, message }),
-    });
+    const params = new URLSearchParams({ handle, message });
+    await fetch(`${SCRIPT_URL}?${params}`, { method: 'GET', mode: 'no-cors' });
     handleInput.value  = '';
     messageInput.value = '';
     submitBtn.textContent = 'Sent — thank you! 🤍';
