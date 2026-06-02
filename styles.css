@@ -650,6 +650,27 @@ img { display: block; max-width: 100%; }
   gap: 1.25rem;
 }
 
+.feedback-input {
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+  outline: none;
+}
+
+.feedback-input:focus {
+  border-color: var(--rose);
+}
+
+.feedback-input::placeholder {
+  color: var(--text-muted);
+}
+
 .feedback-textarea {
   width: 100%;
   padding: 1rem 1.2rem;
