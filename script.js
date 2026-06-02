@@ -41,6 +41,38 @@ document.querySelectorAll('.accordion-trigger').forEach(trigger => {
   });
 });
 
+// ─── Gallery lightbox ────────────────────────────────────────────────
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+lightbox.innerHTML = '<img id="lightbox-img" src="" alt=""><button id="lightbox-close" aria-label="Close">&times;</button>';
+document.body.appendChild(lightbox);
+
+const lightboxImg = document.getElementById('lightbox-img');
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src;
+  lightboxImg.alt = alt;
+  lightbox.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.gallery-tile').forEach(tile => {
+  tile.addEventListener('click', e => {
+    e.preventDefault();
+    const img = tile.querySelector('img');
+    openLightbox(img.src, img.alt);
+  });
+});
+
+document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
 // ─── Scroll fade-in ───────────────────────────────────────────────────
 const fadeTargets = document.querySelectorAll(
   '.pricing-card, .section-title, .section-sub, .booking-steps li, .about-text, .about-logo, .gallery-tile'
