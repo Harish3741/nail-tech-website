@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book an Appointment — Nail Studio by H</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .booking-page {
+      min-height: 100vh;
+      background: var(--bg);
+      padding: 120px 1.5rem 80px;
+    }
+
+    .booking-form-wrap {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    .booking-form-wrap .section-title {
+      margin-bottom: 0.5rem;
+    }
+
+    .booking-notice {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: 0.02em;
+    }
+
+    .form-label span {
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-left: 4px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 0.85rem 1.1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--rose);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .radio-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 1rem 1.25rem;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      background: var(--surface);
+    }
+
+    .radio-option:hover {
+      border-color: var(--rose);
+    }
+
+    .radio-option input[type="radio"] {
+      accent-color: var(--rose);
+      margin-top: 3px;
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .radio-option.selected {
+      border-color: var(--rose);
+      background: #fdf0f0;
+    }
+
+    .radio-label {
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.5;
+      cursor: pointer;
+    }
+
+    .conditional-section {
+      display: none;
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .conditional-section.visible {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .conditional-section .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+
+    .submit-row {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .btn-submit {
+      min-width: 200px;
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .form-success.visible {
+      display: block;
+    }
+
+    .form-success h2 {
+      font-family: var(--font-head);
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .form-success p {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .booking-page {
+        padding: 100px 1rem 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar scrolled" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">NAIL STUDIO <span>by H</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#gallery">Gallery</a></li>
+        <li><a href="index.html#policies">Policies</a></li>
+        <li><a href="index.html#feedback">Feedback</a></li>
+        <li><a href="booking.html" class="nav-cta">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="booking-page">
+    <div class="booking-form-wrap">
+
+      <h1 class="section-title">Book an Appointment</h1>
+
+      <div class="booking-notice">
+        This form does not guarantee an appointment — it helps me take note of dates that I can add more slots and fit in more clients and see if I can squeeze you in! Appointments are confirmed only through direct messages. If you have filled this out I will reach out as soon as I can, and if you haven't heard a response within a week please message me to follow up. Thank you 🤍
+      </div>
+
+      <div id="bookingForm">
+
+        <!-- Instagram handle -->
+        <div class="form-group">
+          <label class="form-label" for="handle">Instagram Handle</label>
+          <input class="form-input" type="text" id="handle" placeholder="@yourusername" />
+        </div>
+
+        <!-- How did you hear -->
+        <div class="form-group">
+          <label class="form-label" for="referral">How / who did you hear about Nail Studio by H from? <span>(optional)</span></label>
+          <input class="form-input" type="text" id="referral" placeholder="e.g. Instagram, a friend, TikTok..." />
+        </div>
+
+        <hr class="form-divider">
+
+        <!-- Booking type -->
+        <div class="form-group">
+          <label class="form-label">What would you like to do?</label>
+          <div class="radio-group">
+            <label class="radio-option" id="label-now">
+              <input type="radio" name="bookingType" value="now" id="opt-now" />
+              <span class="radio-label">I'd like an appointment this month and would like to be put on a waiting list</span>
+            </label>
+            <label class="radio-option" id="label-later">
+              <input type="radio" name="bookingType" value="later" id="opt-later" />
+              <span class="radio-label">I'd like to book an appointment in advance for future months</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- NOW questions -->
+        <div class="conditional-section" id="section-now">
+          <div class="form-group">
+            <label class="form-label" for="dates-now">What dates / days of the week would you prefer?</label>
+            <input class="form-input" type="text" id="dates-now" placeholder="e.g. Mon or Wed, anytime after 10am" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="deadline">Do you need them done before a specific date? <span>(optional)</span></label>
+            <input class="form-input" type="text" id="deadline" placeholder="e.g. before 15 June" />
+          </div>
+        </div>
+
+        <!-- LATER questions -->
+        <div class="conditional-section" id="section-later">
+          <div class="form-group">
+            <label class="form-label" for="month-range">What month and date range would you like to book for? Include your preferred time slot.</label>
+            <input class="form-input" type="text" id="month-range" placeholder="e.g. July, 10–15 July, afternoons preferred" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="reason">What is this appointment for? <span>(optional)</span></label>
+            <input class="form-input" type="text" id="reason" placeholder="e.g. birthday nails, going overseas, baby shower..." />
+          </div>
+        </div>
+
+        <div class="submit-row">
+          <button class="btn btn-primary btn-submit" id="submitBtn">Submit Request</button>
+        </div>
+
+      </div>
+
+      <!-- Success state -->
+      <div class="form-success" id="successMsg">
+        <h2>Thank you! 🤍</h2>
+        <p>Your request has been received. I'll reach out via Instagram DM as soon as I can. If you haven't heard back within a week, please send me a message to follow up!</p>
+        <a href="index.html" class="btn btn-outline">Back to home</a>
+      </div>
+
+    </div>
+  </main>
+
+  <iframe name="booking-iframe" style="display:none"></iframe>
+
+  <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxeo5f42YEZUr9TX5hN7SOmmsmIC7KNBx9-nh3i3x3EFxiJtYfig8IZubJMxccthVLhGg/exec';
+
+    // Navbar
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // Mobile nav
+    const navToggle = document.getElementById('navToggle');
+    const navLinks  = document.getElementById('navLinks');
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+
+    // Radio conditional sections
+    const radios = document.querySelectorAll('input[name="bookingType"]');
+    const sectionNow   = document.getElementById('section-now');
+    const sectionLater = document.getElementById('section-later');
+    const labelNow     = document.getElementById('label-now');
+    const labelLater   = document.getElementById('label-later');
+
+    radios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        sectionNow.classList.toggle('visible',   radio.value === 'now'   && radio.checked);
+        sectionLater.classList.toggle('visible', radio.value === 'later' && radio.checked);
+        labelNow.classList.toggle('selected',   document.getElementById('opt-now').checked);
+        labelLater.classList.toggle('selected', document.getElementById('opt-later').checked);
+      });
+    });
+
+    // Submit
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      const handle = document.getElementById('handle').value.trim();
+      const type   = document.querySelector('input[name="bookingType"]:checked');
+
+      if (!handle) {
+        document.getElementById('handle').style.borderColor = 'var(--rose)';
+        document.getElementById('handle').focus();
+        return;
+      }
+      document.getElementById('handle').style.borderColor = '';
+
+      if (!type) {
+        alert('Please select a booking option.');
+        return;
+      }
+
+      const referral = document.getElementById('referral').value.trim();
+      const params   = { handle, referral, type: type.value };
+
+      if (type.value === 'now') {
+        params.dates    = document.getElementById('dates-now').value.trim();
+        params.deadline = document.getElementById('deadline').value.trim();
+      } else {
+        params.monthRange = document.getElementById('month-range').value.trim();
+        params.reason     = document.getElementById('reason').value.trim();
+      }
+
+      const btn = document.getElementById('submitBtn');
+      btn.textContent = 'Sending…';
+      btn.style.pointerEvents = 'none';
+
+      const iframe = document.createElement('iframe');
+      iframe.name = 'booking-submit-frame';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      const form = document.createElement('form');
+      form.method = 'GET';
+      form.action = SCRIPT_URL;
+      form.target = 'booking-submit-frame';
+
+      Object.entries(params).forEach(([k, v]) => {
+        const input = document.createElement('input');
+        input.type  = 'hidden';
+        input.name  = k;
+        input.value = v;
+        form.appendChild(input);
+      });
+
+      document.body.appendChild(form);
+      form.submit();
+
+      setTimeout(() => {
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+        document.getElementById('bookingForm').style.display = 'none';
+        document.getElementById('successMsg').classList.add('visible');
+      }, 2000);
+    });
+  </script>
+
+</body>
+</html>
