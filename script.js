@@ -26,18 +26,8 @@ document.querySelectorAll('.accordion-trigger').forEach(trigger => {
   trigger.addEventListener('click', () => {
     const isOpen = trigger.getAttribute('aria-expanded') === 'true';
     const body   = trigger.nextElementSibling;
-
-    // Close all
-    document.querySelectorAll('.accordion-trigger').forEach(t => {
-      t.setAttribute('aria-expanded', 'false');
-      t.nextElementSibling.classList.remove('open');
-    });
-
-    // Open clicked (if it wasn't already open)
-    if (!isOpen) {
-      trigger.setAttribute('aria-expanded', 'true');
-      body.classList.add('open');
-    }
+    trigger.setAttribute('aria-expanded', String(!isOpen));
+    body.classList.toggle('open', !isOpen);
   });
 });
 

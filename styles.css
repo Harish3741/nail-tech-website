@@ -726,10 +726,10 @@ img { display: block; max-width: 100%; }
 .accordion-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .accordion-body.open {
-  max-height: 400px;
+  max-height: 600px;
 }
 
 .accordion-body ul {
