@@ -73,6 +73,49 @@ document.getElementById('lightbox-close').addEventListener('click', closeLightbo
 lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
+// ─── Feedback form submission ─────────────────────────────────────────
+const SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+
+const feedbackForm   = document.querySelector('.feedback-form');
+const handleInput    = document.querySelector('.feedback-input');
+const messageInput   = document.querySelector('.feedback-textarea');
+const submitBtn      = document.querySelector('.feedback-submit');
+
+submitBtn.addEventListener('click', async e => {
+  e.preventDefault();
+  const handle  = handleInput.value.trim();
+  const message = messageInput.value.trim();
+
+  if (!message) {
+    messageInput.style.borderColor = 'var(--rose)';
+    messageInput.focus();
+    return;
+  }
+  messageInput.style.borderColor = '';
+
+  submitBtn.textContent = 'Sending…';
+  submitBtn.style.pointerEvents = 'none';
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ handle, message }),
+    });
+    handleInput.value  = '';
+    messageInput.value = '';
+    submitBtn.textContent = 'Sent — thank you! 🤍';
+    setTimeout(() => {
+      submitBtn.textContent = 'Send Feedback';
+      submitBtn.style.pointerEvents = '';
+    }, 4000);
+  } catch {
+    submitBtn.textContent = 'Something went wrong — try again';
+    submitBtn.style.pointerEvents = '';
+  }
+});
+
 // ─── Scroll fade-in ───────────────────────────────────────────────────
 const fadeTargets = document.querySelectorAll(
   '.pricing-card, .section-title, .section-sub, .booking-steps li, .about-text, .about-logo, .gallery-tile'
