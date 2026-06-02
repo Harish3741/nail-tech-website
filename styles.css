@@ -385,21 +385,41 @@ img { display: block; max-width: 100%; }
 .services { background: var(--bg); }
 
 .menu-card {
-  max-width: 640px;
+  max-width: 960px;
   margin: 0 auto;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr auto;
 }
 
 .menu-section {
-  padding: 32px 36px;
-  border-bottom: 1px solid var(--border);
+  padding: 32px 30px;
+  border-right: 1px solid var(--border);
 }
 
 .menu-section--last {
-  border-bottom: none;
+  border-right: none;
+}
+
+.menu-footer {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 700px) {
+  .menu-card {
+    grid-template-columns: 1fr;
+  }
+  .menu-section {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .menu-section--last {
+    border-bottom: none;
+  }
 }
 
 .menu-section-title {
