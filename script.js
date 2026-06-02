@@ -74,7 +74,7 @@ lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightb
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
 // ─── Feedback form submission ─────────────────────────────────────────
-const SCRIPT_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxeo5f42YEZUr9TX5hN7SOmmsmIC7KNBx9-nh3i3x3EFxiJtYfig8IZubJMxccthVLhGg/exec';
 
 const feedbackForm   = document.querySelector('.feedback-form');
 const handleInput    = document.querySelector('.feedback-input');
