@@ -27,7 +27,18 @@ document.querySelectorAll('.accordion-trigger').forEach(trigger => {
     const isOpen = trigger.getAttribute('aria-expanded') === 'true';
     const body   = trigger.nextElementSibling;
     trigger.setAttribute('aria-expanded', String(!isOpen));
-    body.classList.toggle('open', !isOpen);
+
+    if (isOpen) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+      body.classList.remove('open');
+    } else {
+      body.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+      body.addEventListener('transitionend', () => {
+        body.style.maxHeight = '';
+      }, { once: true });
+    }
   });
 });
 

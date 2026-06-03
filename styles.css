@@ -730,7 +730,7 @@ img { display: block; max-width: 100%; }
 .accordion-body {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: max-height 0.35s ease;
 }
 .accordion-body.open {
   max-height: 600px;
