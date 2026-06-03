@@ -220,7 +220,7 @@ img { display: block; max-width: 100%; }
 
 .hero-title {
   font-family: var(--font-head);
-  font-size: clamp(2.5rem, 8vw, 7rem);
+  font-size: clamp(2.5rem, 5vw, 5rem);
   font-weight: 300;
   line-height: 1.05;
   letter-spacing: -0.01em;
@@ -228,7 +228,7 @@ img { display: block; max-width: 100%; }
   margin-bottom: 1.5rem;
 }
 .title-br { display: block; }
-@media (min-width: 768px) { .title-br { display: inline; } }
+@media (min-width: 1024px) { .title-br { display: inline; } }
 
 .hero-title em {
   font-style: italic;
