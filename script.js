@@ -30,8 +30,13 @@ document.querySelectorAll('.accordion-trigger').forEach(trigger => {
 
     if (isOpen) {
       body.style.maxHeight = body.scrollHeight + 'px';
-      requestAnimationFrame(() => { body.style.maxHeight = '0'; });
-      body.classList.remove('open');
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => { body.style.maxHeight = '0'; });
+      });
+      body.addEventListener('transitionend', () => {
+        body.classList.remove('open');
+        body.style.maxHeight = '';
+      }, { once: true });
     } else {
       body.classList.add('open');
       body.style.maxHeight = body.scrollHeight + 'px';
