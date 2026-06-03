@@ -205,7 +205,7 @@ img { display: block; max-width: 100%; }
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 900px;
+  max-width: 700px;
   padding: 120px 24px 60px;
 }
 
@@ -220,16 +220,13 @@ img { display: block; max-width: 100%; }
 
 .hero-title {
   font-family: var(--font-head);
-  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-size: clamp(3.5rem, 10vw, 7rem);
   font-weight: 300;
   line-height: 1.05;
   letter-spacing: -0.01em;
   color: var(--text);
   margin-bottom: 1.5rem;
 }
-.title-br { display: block; }
-@media (min-width: 1024px) { .title-br { display: inline; } }
-
 .hero-title em {
   font-style: italic;
   color: var(--gold);
