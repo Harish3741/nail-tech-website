@@ -388,6 +388,8 @@
         document.body.removeChild(form);
         document.body.removeChild(iframe);
         document.getElementById('bookingForm').style.display = 'none';
+        document.querySelector('.section-title').style.display = 'none';
+        document.querySelector('.booking-notice').style.display = 'none';
         document.getElementById('successMsg').classList.add('visible');
       }, 2000);
     });
