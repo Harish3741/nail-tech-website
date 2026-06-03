@@ -228,7 +228,11 @@ img { display: block; max-width: 100%; }
   margin-bottom: 1.5rem;
 }
 .title-br { display: block; }
-@media (min-width: 860px) { .title-br { display: inline; } }
+@media (min-width: 860px) {
+  .title-br { display: inline; }
+  .hero-content { max-width: 1000px; }
+  .hero-title em { font-size: 0.65em; }
+}
 
 .hero-title em {
   font-style: italic;
