@@ -394,7 +394,7 @@ img { display: block; max-width: 100%; }
 }
 .pricing-card:hover {
   border-color: var(--gold);
-  transform: translateY(-6px) scale(1.04);
+  transform: translateY(-8px) scale(1.08);
 }
 
 .pricing-note {
