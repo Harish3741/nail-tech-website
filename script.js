@@ -11,6 +11,10 @@ const navLinks  = document.getElementById('navLinks');
 navToggle.addEventListener('click', () => {
   const open = navLinks.classList.toggle('open');
   navToggle.setAttribute('aria-expanded', open);
+  if (open) {
+    const firstLink = navLinks.querySelector('a');
+    if (firstLink) firstLink.focus();
+  }
 });
 
 // Close menu when a link is clicked

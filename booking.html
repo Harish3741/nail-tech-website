@@ -6,7 +6,7 @@
   <title>Book an Appointment — Nail Studio by H</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Poppins:wght@300;400;500&display=swap&font-display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
     .booking-page {
@@ -382,16 +382,25 @@
       });
 
       document.body.appendChild(form);
+
+      let submitted = false;
+      iframe.addEventListener('load', () => { submitted = true; });
+
       form.submit();
 
       setTimeout(() => {
-        document.body.removeChild(form);
-        document.body.removeChild(iframe);
-        document.getElementById('bookingForm').style.display = 'none';
-        document.querySelector('.section-title').style.display = 'none';
-        document.querySelector('.booking-notice').style.display = 'none';
-        document.getElementById('successMsg').classList.add('visible');
-      }, 2000);
+        if (document.body.contains(form)) document.body.removeChild(form);
+        if (document.body.contains(iframe)) document.body.removeChild(iframe);
+        if (submitted) {
+          document.getElementById('bookingForm').style.display = 'none';
+          document.querySelector('.section-title').style.display = 'none';
+          document.querySelector('.booking-notice').style.display = 'none';
+          document.getElementById('successMsg').classList.add('visible');
+        } else {
+          btn.textContent = 'Something went wrong — please try again';
+          btn.style.pointerEvents = '';
+        }
+      }, 5000);
     });
   </script>
 
