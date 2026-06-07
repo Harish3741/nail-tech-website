@@ -849,6 +849,19 @@ img { display: block; max-width: 100%; }
   .pricing-grid {
     grid-template-columns: 1fr;
   }
+
+  .hero-content {
+    padding-top: 80px;
+  }
+
+  .btn {
+    padding: 15px 28px;
+    font-size: 0.85rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
 }
 
 /* ─── Scroll fade-in animations ──────────────────────────────────────── */
