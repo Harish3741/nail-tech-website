@@ -221,10 +221,10 @@
   <main class="booking-page">
     <div class="booking-form-wrap">
 
-      <h1 class="section-title">Book an Appointment</h1>
+      <h1 class="section-title">Waiting List Request Form</h1>
 
       <div class="booking-notice">
-        This form does not guarantee an appointment — it helps me take note of dates that I can add more slots and fit in more clients and see if I can squeeze you in! Appointments are confirmed only through direct messages. If you have filled this out I will reach out as soon as I can, and if you haven't heard a response within a week please message me to follow up. Thank you 🤍
+        At the moment I am fully booked with regular clients however with additional availability I will reach out to you based on the dates you set below. This form does not guarantee an appointment — it helps me take note of dates that I can add more slots and fit in more clients and see if I can squeeze you in! Appointments are confirmed only through direct messages. If you have filled this out I will reach out as soon as I can, and if you haven't heard a response within a week please message me to follow up. Thank you 🤍
       </div>
 
       <div id="bookingForm">
@@ -237,7 +237,7 @@
 
         <!-- How did you hear -->
         <div class="form-group">
-          <label class="form-label" for="referral">How / who did you hear about Nail Studio by H from? <span>(optional)</span></label>
+          <label class="form-label" for="referral">How / who did you hear about Nail Studio by H from?</label>
           <input class="form-input" type="text" id="referral" />
         </div>
 
@@ -338,6 +338,8 @@
       const handle = document.getElementById('handle').value.trim();
       const type   = document.querySelector('input[name="bookingType"]:checked');
 
+      const referral = document.getElementById('referral').value.trim();
+
       if (!handle) {
         document.getElementById('handle').style.borderColor = 'var(--rose)';
         document.getElementById('handle').focus();
@@ -345,13 +347,19 @@
       }
       document.getElementById('handle').style.borderColor = '';
 
+      if (!referral) {
+        document.getElementById('referral').style.borderColor = 'var(--rose)';
+        document.getElementById('referral').focus();
+        return;
+      }
+      document.getElementById('referral').style.borderColor = '';
+
       if (!type) {
         alert('Please select a booking option.');
         return;
       }
 
-      const referral = document.getElementById('referral').value.trim();
-      const params   = { handle, referral, type: type.value };
+      const params = { handle, referral, type: type.value };
 
       if (type.value === 'now') {
         params.dates    = document.getElementById('dates-now').value.trim();
